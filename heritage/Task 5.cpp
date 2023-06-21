@@ -1,79 +1,94 @@
 #include<iostream>
-//5. WAP to read and print employee information with use of multilevel inheritance. (as like in below image)
+
 using namespace std;
 
 class A{
-   private:
-   	int id;
-   	char name[300];
-   	char role[700];
-   public:	
-     void setter1(){
-     	cout<<"id :"<<endl;
-     	cin>>id;
-     	cout<<"name :"<<endl;
-     	cin>>name;
-     	cout<<"role :"<<endl;
-     	cin>>role;
-	 }
-};
-class B:public A{
-   private:
-   	int salary;
-   	int experience;
-  
-   public:	
-     void setter2(){
-     	cout<<"salary:"<<endl;
-     	cin>>salary;
-     	cout<<"experience :"<<endl;
-     	cin>>experience;
-	 }
-};
-class C :public B{
-   private:
-    char name[600];
-    char role[900];
-    int salary;
-  	char comp_name[300];
-  	char address[500];
-  	
-   public:	
-    void getter3(){
-    	cout<<"name"<<name<<endl;
-    	cout<<"role"<<role<<endl;
-    	cout<<"salary"<<salary<<endl;
-	}
-	void setter3(){
-		cout<<"comp_name:"<<endl;
-		cin>>comp_name;
-		cout<<"address: "<<endl;
-		cin>>address;
-	}
-};
-class D:public C{
-    private:
-     char email[670];
-	 double contact;
-	 
 	public:
-	 void setter4(){
-	 	cout<<"email: "<<endl;
-	 	cin>>email;
-	 	cout<<"contact: "<<endl;
-	 	cin>>contact;
-	 }	
+		int id;
+		char name[100];
+		char role[100];
+		
+	
+	void setter(){
+	    	cout<<"Enter id :";
+	    	cin>>id;
+	    	
+	    	cout<<"Enter Name :";
+	    	cin>>name;
+	    	
+	    	cout<<"Enter Role :";
+	    	cin>>role;
+		}	
 };
-
-
+class B{
+	public:
+		int salary;
+		char exp[100];
+		
+	void setter1(){
+	    	cout<<"Enter Your Salary :";
+	    	cin>>salary;
+	    	
+	    	cout<<"Enter Experience :";
+	    	cin>>exp;
+		}
+};
+class C : public A ,public B{
+	public:
+		char com[100];
+		char add[100];
+	void setter2(){
+	    	cout<<"Enter Company Name :";
+	    	cin>>com;
+	    	
+	    	cout<<"Enter Address :";
+	    	cin>>add;
+		}
+		void getter(){
+			cout<<"Name :"<<name<<endl;
+			
+			cout<<"Role :"<<role<<endl;
+			
+			cout<<"Salary :"<<salary;
+		}
+};
+class D :public C{
+	public:
+		char email[100];
+		char con[100];
+	void setter3(){
+	    	cout<<"Enter Email :";
+	    	cin>>email;
+	    	
+	    	cout<<"Enter Contact 91:";
+	    	cin>>con;
+		}
+		void getter(){
+			C();
+			
+			cout<<"Id :"<<id<<endl;
+			
+			cout<<"Experience :"<<exp<<endl;
+			
+			cout<<"Company Name :"<<com;
+			
+			cout<<"Address :"<<add;
+			
+			cout<<"Email :"<<email;
+			
+			cout<<"Contact :"<<con;
+		}
+		
+};
 int main(){
 	D obj;
 	
+	obj.setter();
 	obj.setter1();
 	obj.setter2();
 	obj.setter3();
-	obj.getter3();
-	obj.setter4();
+	
+	obj.getter();
 	
 	return 0;
 }
